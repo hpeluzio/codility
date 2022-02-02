@@ -10,6 +10,10 @@ function solution(X, Y, D) {
 
   // return jumps + 1;
 
+  console.log((Y - X) / D);
+  Math.ceil(Y - X);
+  // console.log((Y - X) / D)
+
   return Math.ceil((Y - X) / D);
 }
 

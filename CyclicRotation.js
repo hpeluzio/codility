@@ -1,29 +1,37 @@
-// you can write to stdout for debugging purposes, e.g.
-// console.log('this is a debug message');
-
+/*
+ * 1 Way on Video
+ */
 function solution(A, K) {
-  // console.log(A, " - ", K);
-  // write your code in JavaScript (Node.js 8.9.4)
+  // Evitando loops desnecessarios
+  K = K % A.length;
 
-  // const fruits = ["Banana", "Orange", "Apple", "Mango"];
-  // console.log(fruits);
-  // const shifted = fruits.shift();
-  // const popped = fruits.pop();
-  // console.log(shifted);
-  // console.log(popped);
-
-  console.log(A);
+  if (A.length === K || K === 0) {
+    return A;
+  }
   while (K > 0) {
     let popped = A.pop();
     A.unshift(popped);
     K--;
   }
 
-  // const popped = A.pop();
-  // A.unshift(popped);
-  // console.log(A);
-  // A.unshift(0);
-  console.log(A);
+  return A;
 }
 
-solution([1, 2, 3, 4, 5, 6], 2);
+console.log(solution([1, 2, 3, 4, 5, 6], 2));
+
+/*
+ * 2 Way on Video
+ */
+function solution(A, K) {
+  // Evitando loops desnecessarios
+  K = K % A.length;
+
+  if (A.length === K || K === 0) {
+    return A;
+  }
+
+  const sliceIndex = A.length - K;
+  return [...A.slice(sliceIndex), ...A.slice(0, sliceIndex)];
+}
+
+// console.log(solution([1, 2, 3, 4, 5, 6], 2));
